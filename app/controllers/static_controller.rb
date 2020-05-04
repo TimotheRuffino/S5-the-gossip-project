@@ -1,20 +1,27 @@
 class StaticController < ApplicationController
-  require 'gossip'
   def team 
   end
-
 
   def contact
   end
 
+  def gossip
+  end
+
   def welcome
-    @user = params[:id]
+      @user = params[:id]
   end
 
   def index
-    @gossip = Gossip.all
-  end
+      @gossip = Gossip.all
+  end 
 
   def show
-  end
-end
+      @gossip = Gossip.all
+      @potin = User.first_name
+  end 
+
+  def user
+  end 
+
+end 

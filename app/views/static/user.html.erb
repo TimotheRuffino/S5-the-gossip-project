@@ -1,4 +1,3 @@
-
 <html>
 <head>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -15,32 +14,3 @@
   </div>
 </nav>
 </head>
-
-<body>
-
-<div class="container py-3 text-center">
-<h1>Bienvenue <%= @user %>  !</h1>
-<h3>Voici les potins :</h3>
-</div>
-
-
-<div class="row justify-content-center">
-  <div class="col-lg-4 col-md-6 mb-3">
-    <div class="card">
-    <% @gossip.each do |gossip| %>
-      <div class="card-body"> 
-        <h5 class="card-title"><%= gossip.user.first_name %></h5>
-        <p class="card-text">titre : <%= gossip.title %></p>
-        <a href="<%=show_path%>" class="btn btn-primary">Voir le potin</a></a>
-      </div>
-      <% end %>
-    </div>
-    
-  </div>
-
-</body>
-
-
-
-
-</html>
