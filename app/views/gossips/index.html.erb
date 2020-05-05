@@ -9,14 +9,19 @@
   <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
     <div class="navbar-nav">
     <a class="nav-item nav-link active" href="<%=root_path%>">Accueil <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link active" href="<%=team_path %>">Team <span class="sr-only">(current)</span></a>
-<a class="nav-item nav-link active" href="<%=contact_path %>">Contact <span class="sr-only">(current)</span></a>     
+    <a class="nav-item nav-link active" href="<%=gossips_path %>">Liste des potins <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active" href="<%=new_gossip_path %>">Créer un potin <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<%=team_index_path %>">Team <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href="<%=contact_index_path %>">Contact <span class="sr-only">(current)</span></a>     
     </div>
   </div>
 </nav>
 </head>
 
 <body>
+<% if params[:commit] == "Envoyer" %>
+     <p class="container alert alert-success d-flex justify-content-center" role="alert">Ton potin a été enregistré !</p>
+  <% end %>
 
 <div class="container py-3 text-center">
 <h1>Bienvenue <%= @user %>  !</h1>
