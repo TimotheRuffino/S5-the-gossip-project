@@ -31,7 +31,7 @@
       <div class="card-body"> 
         <h5 class="card-title"><%= gossip.user.first_name %></h5>
         <p class="card-text">titre : <%= gossip.title %></p>
-        <a href="<%=show_path%>" class="btn btn-primary">Voir le potin</a></a>
+        <a href="/show/<%=gossip.id%>" class="btn btn-primary">Voir le potin</a></a>
       </div>
       <% end %>
     </div>
