@@ -8,8 +8,8 @@
 
 require 'faker'
 
-City.destroy_all
 User.destroy_all
+City.destroy_all
 Gossip.destroy_all
 Tag.destroy_all
 JoinTableTagGossip.destroy_all
@@ -20,7 +20,7 @@ Like.destroy_all
 10.times do
   city = City.create!(
     name: Faker::Address.city,
-    zip_code: Faker::Address.zip_code
+    zip_code: rand(10000..95801)
   )
 end
 
@@ -37,13 +37,13 @@ end
 
 10.times do
   tag = Tag.create!(
-    title: "#" + Faker::Lorem.word
+    title: "#" + Faker::Lorem.sentence(word_count: 14)
   )
 end
 
 20.times do
   gossip = Gossip.create!(
-    title: Faker::Lorem.sentence(word_count: 3),
+    title: Faker::Lorem.characters(number: 11),
     content: Faker::Lorem.sentence(word_count: 10),
     user: User.all.sample,
   )
@@ -56,13 +56,13 @@ end
   )
 end
 
-5.times do
-  private_message = PrivateMessage.create!(
-    content: Faker::Lorem.sentence(word_count: 10),
-    sender: User.all.sample,
-    recipient: User.all.sample
-  )
-end
+#5.times do
+ # private_message = PrivateMessage.create!(
+  #  content: Faker::Lorem.sentence(word_count: 10),
+   # sender: User.all.sample,
+    #recipient: User.all.sample
+  #)
+#end
 
 40.times do
   comment = Comment.create!(
@@ -72,10 +72,10 @@ end
   )
 end
 
-50.times do
-  like = Like.create!(
-    user: User.all.sample,
-    gossip: Gossip.all.sample,
-    comment: Comment.all.sample
-  )
-end
+#50.times do
+ # like = Like.create!(
+  #  user: User.all.sample,
+   # gossip: Gossip.all.sample,
+    #comment: Comment.all.sample
+  #)
+#end
