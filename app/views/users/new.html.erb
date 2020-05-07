@@ -18,39 +18,66 @@
 </head>
 
 <body>
-   <%= form_tag url_for(action: 'create'), method: "post" do %>
-<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >      
-
-      <h4><div class="row justify-content-center"><%= label_tag 'email' %></div></h4>
-      <div class="row justify-content-center"><%= text_field_tag 'email', @user.email %></div>
-      <br /> <br />
-
-      <h4><div class="row justify-content-center"><%= label_tag 'password' %></div></h4>
-      <div class="row justify-content-center"><%= text_area_tag 'password', @user.password_digest %></div>
-      <br /> <br />
-
-      <h4><div class="row justify-content-center"><%= label_tag 'first_name' %></div></h4>
-      <div class="row justify-content-center"><%= text_area_tag 'first_name', @user.first_name %></div>
-      <br /> <br />
-
-<h4><div class="row justify-content-center"><%= label_tag 'last_name' %></div></h4>
-      <div class="row justify-content-center"><%= text_area_tag 'last_name', @user.last_name %></div>
-      <br /> <br />
-
-      <h4><div class="row justify-content-center"><%= label_tag 'age' %></div></h4>
-      <div class="row justify-content-center"><%= text_area_tag 'age', @user.age %></div>
-      <br /> <br />
-
-      <h4><div class="row justify-content-center"><%= label_tag 'city_id' %></div></h4>
-      <div class="row justify-content-center"><%= text_area_tag 'city_id', @user.city_id %></div>
-      <br /> <br />
+  <div class="panel panel-default">
+    <div class="panel-heading text-center"> S'inscrire</div>
+      <div class="panel-body row justify-content-center">
+        <%= form_for @user, class:'form-horizontal' do |f|%>
+          
+          <div class="form-group">
+            <%= f.label :last_name, "Nom", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.text_field :last_name, class: 'form-control' %>
+              </div>
+          </div>
 
 
-<div class="row justify-content-center "><%= submit_tag "Créer un compte" %></div>
+          <div class="form-group">
+            <%= f.label :first_name, "Prénom", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.text_field :first_name, class: 'form-control' %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :email, "Email", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.email_field :email, class: 'form-control' %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :city, "Ville", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.text_field :city, class: 'form-control' %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password, "Password", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.password_field :password, class: 'form-control' %>
+              </div>
+          </div>
+
+          <div class="form-group">
+            <%= f.label :password_confirmation, "Confirmer password", class: 'col-md-4 control-label' %>
+              <div class="col-md-6">
+                <%= f.password_field :password_confirmation, class: 'form-control' %>
+              </div>
+          </div>
+
+
+<div class="form-group">
+  <div class="col-md-6 col-md-offset-4">
+    <button type="submit" class="btn btn-primary"> 
+      S'inscrire 
+    </button>
+  </div>
+</div>
+       
+
+        <% end %>
+      </div>
+  </div>  
       
-
-    <% end %>
-      
-  </body>
-    
-</html>
+  </html>

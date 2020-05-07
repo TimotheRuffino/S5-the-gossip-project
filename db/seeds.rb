@@ -25,7 +25,7 @@ Like.destroy_all
 end
 
 10.times do
-  user = User.create!(
+  user = User.create!( 
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name,
     description: Faker::Lorem.sentence(word_count: 10),

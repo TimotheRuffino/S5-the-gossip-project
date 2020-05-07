@@ -2,9 +2,9 @@ Rails.application.routes.draw do
   root 'root#index'
   resources :gossips
   resources :comments
-
+ 
   
-  resources :users
+  resources :users, only: [:new, :create]
   resources :welcome, only: [:index]
   
   resources :contact, only: [:index]
