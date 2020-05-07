@@ -1,0 +1,56 @@
+<html>
+<head>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="<%=root_path%>">The Gossip Project</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+    
+    <a class="nav-item nav-link active" href="<%=gossips_path %>">Liste des potins <span class="sr-only">(current)</span></a>
+    <a class="nav-item nav-link active" href="<%=new_gossip_path %>">Créer un potin <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link active" href="<%=team_index_path %>">Team <span class="sr-only">(current)</span></a>
+<a class="nav-item nav-link active" href="<%=contact_index_path %>">Contact <span class="sr-only">(current)</span></a>     
+    </div>
+  </div>
+</nav>
+</head>
+
+<body>
+   <%= form_tag url_for(action: 'create'), method: "post" do %>
+<input type="hidden" name="authenticity_token" value=<%= form_authenticity_token %> >      
+
+      <h4><div class="row justify-content-center"><%= label_tag 'email' %></div></h4>
+      <div class="row justify-content-center"><%= text_field_tag 'email', @user.email %></div>
+      <br /> <br />
+
+      <h4><div class="row justify-content-center"><%= label_tag 'password' %></div></h4>
+      <div class="row justify-content-center"><%= text_area_tag 'password', @user.password_digest %></div>
+      <br /> <br />
+
+      <h4><div class="row justify-content-center"><%= label_tag 'first_name' %></div></h4>
+      <div class="row justify-content-center"><%= text_area_tag 'first_name', @user.first_name %></div>
+      <br /> <br />
+
+<h4><div class="row justify-content-center"><%= label_tag 'last_name' %></div></h4>
+      <div class="row justify-content-center"><%= text_area_tag 'last_name', @user.last_name %></div>
+      <br /> <br />
+
+      <h4><div class="row justify-content-center"><%= label_tag 'age' %></div></h4>
+      <div class="row justify-content-center"><%= text_area_tag 'age', @user.age %></div>
+      <br /> <br />
+
+      <h4><div class="row justify-content-center"><%= label_tag 'city_id' %></div></h4>
+      <div class="row justify-content-center"><%= text_area_tag 'city_id', @user.city_id %></div>
+      <br /> <br />
+
+
+<div class="row justify-content-center "><%= submit_tag "Créer un compte" %></div>
+      
+
+    <% end %>
+      
+  </body>
+    
+</html>

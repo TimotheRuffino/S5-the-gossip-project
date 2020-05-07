@@ -23,5 +23,37 @@ class GossipsController < ApplicationController
 		@gossip = Gossip.all
 	end
 
-	
+
+def update
+	@gossip = Gossip.find(params[:id])
+	if @gossip.update(gossip_params)
+		flash[:success] = "Ton super potin a correctement été mis à jour !"
+		redirect_to gossips_path
+	else
+		render :edit
+	end
 end
+
+	def edit
+		@gossip = Gossip.find(params[:id])
+	end
+
+	
+
+def destroy
+	@gossip = Gossip.find(params[:id])
+	if @gossip.destroy
+		redirect_to gossips_path
+	else 
+		render 'destroy'
+	end
+end
+
+end
+
+private
+	
+def gossip_params
+  params.require(:gossip).permit(:title, :content)
+end
+

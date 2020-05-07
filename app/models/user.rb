@@ -3,7 +3,7 @@ class User < ApplicationRecord
   presence: true,
   uniqueness: true,
   format: { with: /\A[^@\s]+@([^@\s]+\.)+[^@\s]+\z/, message: "email adress please" }
-  validates :first_name, presence: true
+  validates :first_name, presence: true 
   validates :last_name, presence: true
 
   belongs_to :city
@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :received_messages, foreign_key: 'recipient_id', class_name: "PrivateMessage"
   has_many :comments
   has_many :likes
+  has_secure_password
 end

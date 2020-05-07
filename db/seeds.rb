@@ -31,7 +31,8 @@ end
     description: Faker::Lorem.sentence(word_count: 10),
     email: Faker::Internet.email,
     age: rand(18..28),
-    city: City.all.sample
+    city: City.all.sample,
+    password_digest: Faker::Lorem.characters(number: 10)
   )
 end
 
@@ -69,6 +70,16 @@ end
     content: Faker::Lorem.sentence(word_count: 10),
     gossip: Gossip.all.sample,
     user: User.all.sample
+  )
+end
+
+
+# Create comments
+20.times do
+  Comment.create(
+    gossip: Gossip.all.sample,
+    user: User.all.sample,
+    content: Faker::Hipster.sentence(word_count: 40, supplemental: true)
   )
 end
 
